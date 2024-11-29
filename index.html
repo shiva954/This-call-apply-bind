@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    Task1
+    let persoon= {
+      name: "shiva",
+      sayhello : function(){
+        console.log(`hello ${this.name}`)
+      }
+    }
+    console.log(persoon.sayhello())
+
+    Task2
+    let calculator={
+      value:10,
+      add:function(){
+        console.log(this.value+5)
+      },
+     subtract:()=>{
+        console.log(this.value-5)
+     }
+    }
+    console.log(calculator.add());
+    console.log(calculator.subtract());
+
+
+    Task4
+    
+    const car = {
+    startEngine: function () {
+        console.log(`starting the engine of ${this.brand}`);
+    }
+}
+car.startEngine.call({ brand: "hero" });
+
+  
+      Task5
+      let mathoperations={
+        sum:function(a,b){
+          console.log(a+b);
+        }
+      }
+      
+   mathoperations.sum.apply({},[5,10]);
+
+      Task6
+      let counter={
+        count:0,
+        increment: function () {
+        this.count++;
+        console.log(`${this.count}`);
+     }
+   }
+  const inc = counter.increment.bind(counter);
+   inc();
+  Task7
+const timer = {
+    name: "sai",
+    start: function () {
+        setTimeout(() => {
+            console.log(`${this.name}started!`)
+        }, 2000)
+    }
+}
+const print = timer.start.bind(timer);
+print();
+
+Task8
+const rectangle = {
+    length: 5,
+    breadth: 10
+}
+const circel = {
+    radius: 5,
+    pi: 3.14
+}
+function areaOfRectangle(l, b) {
+    console.log(l * b);
+}
+function areaOfCircle(pi, r) {
+    console.log(pi * (r ** 2));
+}
+areaOfRectangle.call(areaOfRectangle, rectangle.length, rectangle.breadth);
+areaOfCircle.call(areaOfCircle, circel.pi, circel.radius);
+
+Task9
+class Employee {
+    constructor(name, designation) {
+        this.name = name;
+        this.designation = designation;
+
+    }
+    introduce() {
+        console.log(`hi i am ${this.name},${this.designation}`);
+    }
+}
+const employee1 = new Employee("sai", "model");
+employee1.introduce();
+
+      
+  </script>
+</body>
+</html>
